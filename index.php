@@ -6,12 +6,10 @@ $app = new \Slim\Slim();
 
 $app->config('debug', true);
 
-$app->get('/', function() {
+$app->get('/', function () {
+    $page = new \App\Page();
 
-    $sql = new App\DB\Sql();
-    $result = $sql->select("Select * from tb_users");
-
-    echo json_encode($result);
+    $page->setTpl("index");
 
 });
 
